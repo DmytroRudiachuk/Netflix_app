@@ -8,7 +8,8 @@ import Episodes from '../Episodes/Episodes'
 
 const Main = () => {
   const[isSidebarShow, setIsSidebarShow] = useState(false)
-  const[activeTab, setActiveTab] = useState(false)
+  const[activeTab, setActiveTab] = useState(1)
+
   return (
     <div className={styles.wrapper}>
       <Sidebar
@@ -18,18 +19,19 @@ const Main = () => {
       <div
         className={styles.main}
         style={{
-        backgraundImage: `url(${DATA[0].mainImage})`,
-        width: isSidebarShow ? '85%' : '90%'
-      }}>
-        {activeTab === 1 ?
-          <Information movie={DATA[0]}/>
-          : activeTab === 2 && <Episodes/>
-        }
-
-        <ButtonNavigation activeTab={activeTab} setActiveTab={setActiveTab}/>
+          backgroundImage: `url(${DATA[0].mainImage})`,
+          width: isSidebarShow ? '85%' : '90%',
+        }}
+      >
+        {activeTab === 1 ? (
+          <Information movie={DATA[0]} />
+        ) : (
+          activeTab === 2 && <Episodes />
+        )}
       </div>
+      <ButtonNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
     </div>
-  );
+  )
 };
 
 export default Main;

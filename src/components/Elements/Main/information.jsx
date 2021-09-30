@@ -4,7 +4,7 @@ import Button from '../../UI/Button/Button'
 
 const Information = ({movie}) => {
     const addToFavorites = (movieName) => {
-      let favorites = localStorage.getItem('favMovis')
+      let favorites = localStorage.getItem('favMovies')
 
       if(favorites) {
         favorites = JSON.parse(favorites)
@@ -37,7 +37,7 @@ const Information = ({movie}) => {
         <span>Play</span>
       </Button>
       <Button cd={addToFavorites}>
-        <i className="bx  bx-plus"></i>
+        <i className="bx bx-plus"></i>
         <span>My list</span>
       </Button>
     </div>
