@@ -15,7 +15,7 @@ const Profile = () => {
             alt=''
           />
         </div>
-        <i class='bx bx-caret-down'></i>
+        <i className='bx bx-caret-down'></i>
       </div>
     </div>
   );

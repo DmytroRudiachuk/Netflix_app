@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from './Sidebar.module.scss'
 
-const menu = [
-  'Popular', 'TV Shows', 'Folms', 'My list'
-]
+const menu = ['Popular', 'TV Shows', 'Folms', 'My list']
 
-
-const Sidebar = (isSidebarShow, setIsSidebarShow) => {
+const Sidebar = ({isSidebarShow, setIsSidebarShow}) => {
   return (
-    <div className={styles.sidebar} style={{ width: isSidebarShow ? 30 : 15}}>
-      <button onClick={() => setIsSidebarShow(true)}>
+    <div className={styles.sidebar}
+         style={{ width: isSidebarShow ? '15%' : '10%'}}>
+      <button onClick={() => setIsSidebarShow(!isSidebarShow)}>
         <i
           className={`bx bx-${isSidebarShow ?
             'x' :
@@ -17,14 +15,13 @@ const Sidebar = (isSidebarShow, setIsSidebarShow) => {
         >
         </i>
       </button>
-      <ul>
+      <ul className={isSidebarShow ? styles.show : ''}>
         {menu.map(title =>(
-          <li>
+          <li key={title}>
             <a href={title}>{title}</a>
           </li>
         ))}
       </ul>
-
     </div>
   );
 };

@@ -4,9 +4,11 @@ import {DATA} from '../../../data'
 import Sidebar from '../../UI/Sidebar/Sidebar'
 import Information from './information'
 import ButtonNavigation from '../../UI/ButtonNavigation/ButtonNavigation'
+import Episodes from '../Episodes/Episodes'
 
 const Main = () => {
   const[isSidebarShow, setIsSidebarShow] = useState(false)
+  const[activeTab, setActiveTab] = useState(false)
   return (
     <div className={styles.wrapper}>
       <Sidebar
@@ -17,10 +19,14 @@ const Main = () => {
         className={styles.main}
         style={{
         backgraundImage: `url(${DATA[0].mainImage})`,
-        width: isSidebarShow ? 70 : 85
+        width: isSidebarShow ? '85%' : '90%'
       }}>
-        <Information movie={DATA[0]}/>
-        <ButtonNavigation />
+        {activeTab === 1 ?
+          <Information movie={DATA[0]}/>
+          : activeTab === 2 && <Episodes/>
+        }
+
+        <ButtonNavigation activeTab={activeTab} setActiveTab={setActiveTab}/>
       </div>
     </div>
   );

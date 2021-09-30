@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Main.module.scss'
 import Button from '../../UI/Button/Button'
 
-const Information = ({muvie}) => {
+const Information = ({movie}) => {
     const addToFavorites = (movieName) => {
       let favorites = localStorage.getItem('favMovis')
 
